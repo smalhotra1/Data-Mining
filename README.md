@@ -17,13 +17,13 @@ Using this dataset, we can run create a data model based on _closed Sanitation r
 
 Preliminary Steps
 -----------------
-- _Remove Duplicate Request IDs_: As of the moment we found that there are Duplicate Requests ID's. Having Done Some research, we found the meta data does not have any information as to why supposedly different requests are actually different. To solve this issue, we must remove any duplicate request IDs, because our dataset contains 10,000+ rows, it should not affect our dataset, but we must not that this was a judgement call.
-- _Remove Empty Rows_: there are rows in the dataset which are missing crucial data for our analysis, to cope with this the step-1 rapid miner process should remove any rows which are missing data.
-- _Discretize Nature of code Violation_: the data set has several different types of code violations, but they are awkwardly named, we must rename these attributes to something which is more self-descriptive.
-- _Save All Open Sanitation Requests into its own excel file_: We will be using this dataset as our test dataset once we have our data model. Our Open Sanitation Requests Model should look fairly similar to the data set for the closed Sanitation Requests *after* it has been joined to the heath indicators dataset.
-- _Compute the Duration of all Closed Sanitation Requests_: Generate An attribute which is the duration of how long it takes to complete a requests as a new attribute.
-- _Transpose the Violation Types into their own columns as attributes_: We will have to make each type of violation its own column so that we can aggregate the count of each request by community ID
-- _Aggregate Requests by Community ID_: We will then have to make a rapid miner process which will aggregate the dataset by community ID so that it looks like this:
+~~- _Remove Duplicate Request IDs_: As of the moment we found that there are Duplicate Requests ID's. Having Done Some research, we found the meta data does not have any information as to why supposedly different requests are actually different. To solve this issue, we must remove any duplicate request IDs, because our dataset contains 10,000+ rows, it should not affect our dataset, but we must not that this was a judgement call.~~
+~~- _Remove Empty Rows_: there are rows in the dataset which are missing crucial data for our analysis, to cope with this the step-1 rapid miner process should remove any rows which are missing data.~~
+~~- _Discretize Nature of code Violation_: the data set has several different types of code violations, but they are awkwardly named, we must rename these attributes to something which is more self-descriptive.~~
+~~- _Save All Open Sanitation Requests into its own excel file_: We will be using this dataset as our test dataset once we have our data model. Our Open Sanitation Requests Model should look fairly similar to the data set for the closed Sanitation Requests *after* it has been joined to the heath indicators dataset.~~
+~~- _Compute the Duration of all Closed Sanitation Requests_: Generate An attribute which is the duration of how long it takes to complete a requests as a new attribute.~~
+~~- _Transpose the Violation Types into their own columns as attributes_: We will have to make each type of violation its own column so that we can aggregate the count of each request by community ID~~
+~~- _Aggregate Requests by Community ID_: We will then have to make a rapid miner process which will aggregate the dataset by community ID so that it looks like this:~~
 
 | Community ID 	| Garbage in Alley Reqs 	| Garbage in Alley Req Duration 	| ...And so on... 	|
 |--------------	|-----------------------	|-------------------------------	|-----------------	|
