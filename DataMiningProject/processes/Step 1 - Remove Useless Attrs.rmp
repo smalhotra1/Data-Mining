@@ -60,7 +60,7 @@
         <description align="center" color="transparent" colored="true" width="126">Remove Duplicate Request IDs</description>
       </operator>
       <operator activated="true" class="store" compatibility="7.4.000" expanded="true" height="68" name="Store" width="90" x="782" y="136">
-        <parameter key="repository_entry" value="../data/Intermediate Datasets/Sanitation_Requests_With_Useless_Attrs_Removed"/>
+        <parameter key="repository_entry" value="../data/Intermediate_Datasets/Sanitation_Requests_With_Useless_Attrs_Removed"/>
         <description align="center" color="transparent" colored="true" width="126">Store as step 1 output</description>
       </operator>
       <connect from_op="Retrieve" from_port="output" to_op="Select Attributes" to_port="example set input"/>

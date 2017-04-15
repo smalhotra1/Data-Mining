@@ -13,7 +13,7 @@
     <parameter key="encoding" value="SYSTEM"/>
     <process expanded="true">
       <operator activated="true" class="retrieve" compatibility="7.4.000" expanded="true" height="68" name="Retrieve" width="90" x="45" y="187">
-        <parameter key="repository_entry" value="../data/Intermediate Datasets/Sanitation_Requests_With_Useless_Attrs_Removed"/>
+        <parameter key="repository_entry" value="../data/Intermediate_Datasets/Sanitation_Requests_With_Useless_Attrs_Removed"/>
       </operator>
       <operator activated="true" class="multiply" compatibility="7.4.000" expanded="true" height="103" name="Multiply" width="90" x="179" y="187"/>
       <operator activated="true" class="filter_examples" compatibility="7.4.000" expanded="true" height="103" name="Get Closed Requests Only..." width="90" x="380" y="289">
@@ -28,7 +28,7 @@
         <description align="center" color="transparent" colored="true" width="126">Get only those requests that have status CLOSED</description>
       </operator>
       <operator activated="true" class="store" compatibility="7.4.000" expanded="true" height="68" name="Store Closed Reqs" width="90" x="648" y="238">
-        <parameter key="repository_entry" value="../data/Intermediate Datasets/Closed_Requests_Only"/>
+        <parameter key="repository_entry" value="../data/Intermediate_Datasets/Closed_Requests_Only"/>
       </operator>
       <operator activated="true" class="filter_examples" compatibility="7.4.000" expanded="true" height="103" name="Get Open Requests Only" width="90" x="380" y="85">
         <parameter key="parameter_expression" value=""/>
@@ -42,7 +42,7 @@
         <description align="center" color="transparent" colored="true" width="126">Get only those reqests that have status OPEN</description>
       </operator>
       <operator activated="true" class="store" compatibility="7.4.000" expanded="true" height="68" name="Store Open Reqs" width="90" x="648" y="136">
-        <parameter key="repository_entry" value="../data/Intermediate Datasets/Open_Sanitation_Requests_Only"/>
+        <parameter key="repository_entry" value="../data/Intermediate_Datasets/Open_Sanitation_Requests_Only"/>
       </operator>
       <connect from_op="Retrieve" from_port="output" to_op="Multiply" to_port="input"/>
       <connect from_op="Multiply" from_port="output 1" to_op="Get Open Requests Only" to_port="example set input"/>

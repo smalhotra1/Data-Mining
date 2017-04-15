@@ -13,7 +13,7 @@
     <parameter key="encoding" value="SYSTEM"/>
     <process expanded="true">
       <operator activated="true" class="retrieve" compatibility="7.4.000" expanded="true" height="68" name="Retrieve (2)" width="90" x="45" y="85">
-        <parameter key="repository_entry" value="../data/Intermediate Datasets/Closed_Sanitation_Requests_Aggregated_By_Community_ID"/>
+        <parameter key="repository_entry" value="../data/Intermediate_Datasets/Closed_Sanitation_Requests_Aggregated_By_Community_ID"/>
       </operator>
       <operator activated="true" class="set_role" compatibility="7.4.000" expanded="true" height="82" name="Set Role" width="90" x="246" y="34">
         <parameter key="attribute_name" value="Community Area ID"/>

@@ -13,7 +13,7 @@
     <parameter key="encoding" value="SYSTEM"/>
     <process expanded="true">
       <operator activated="true" class="retrieve" compatibility="7.4.000" expanded="true" height="68" name="Retrieve Closed Reqs Only" width="90" x="45" y="187">
-        <parameter key="repository_entry" value="../data/Intermediate Datasets/Closed_Requests_Only"/>
+        <parameter key="repository_entry" value="../data/Intermediate_Datasets/Closed_Requests_Only"/>
       </operator>
       <operator activated="true" class="subprocess" compatibility="7.4.000" expanded="true" height="82" name="Convert Dates to Day(s)" width="90" x="313" y="187">
         <process expanded="true">
@@ -102,7 +102,7 @@
         <description align="center" color="transparent" colored="false" width="126">Only Select Desired Attributes (Ignore intermediate attrs used to calculate duration)</description>
       </operator>
       <operator activated="true" class="store" compatibility="7.4.000" expanded="true" height="68" name="Store" width="90" x="1050" y="187">
-        <parameter key="repository_entry" value="../data/Intermediate Datasets/Closed_Sanitation_Requests_With_Duration_Attr_Added"/>
+        <parameter key="repository_entry" value="../data/Intermediate_Datasets/Closed_Sanitation_Requests_With_Duration_Attr_Added"/>
       </operator>
       <connect from_op="Retrieve Closed Reqs Only" from_port="output" to_op="Convert Dates to Day(s)" to_port="in 1"/>
       <connect from_op="Convert Dates to Day(s)" from_port="out 1" to_op="Generate Attributes" to_port="example set input"/>

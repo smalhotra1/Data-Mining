@@ -39,7 +39,7 @@
         <list key="macros"/>
         <parameter key="fail_for_unknown_macros" value="true"/>
       </operator>
-      <operator activated="true" class="productivity:execute_process" compatibility="7.4.000" expanded="true" height="68" name="Execute Step 4 - Tranpose &amp; Aggregate by Community ID" width="90" x="648" y="136">
+      <operator activated="true" class="productivity:execute_process" compatibility="7.4.000" expanded="true" height="82" name="Execute Step 4 - Tranpose &amp; Aggregate by Community ID" width="90" x="648" y="136">
         <parameter key="process_location" value="Step 4 - Tranpose &amp; Aggregate by Community ID"/>
         <parameter key="use_input" value="true"/>
         <parameter key="store_output" value="false"/>
@@ -48,7 +48,7 @@
         <list key="macros"/>
         <parameter key="fail_for_unknown_macros" value="true"/>
       </operator>
-      <operator activated="true" class="productivity:execute_process" compatibility="7.4.000" expanded="true" height="68" name="Execute Step 5 - Join to Public Health Indicators" width="90" x="916" y="34">
+      <operator activated="true" class="productivity:execute_process" compatibility="7.4.000" expanded="true" height="82" name="Execute Step 5 - Join to Public Health Indicators" width="90" x="916" y="34">
         <parameter key="process_location" value="Step 5 - Join to Public Health Indicators"/>
         <parameter key="use_input" value="true"/>
         <parameter key="store_output" value="false"/>

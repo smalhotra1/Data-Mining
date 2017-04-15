@@ -13,7 +13,7 @@
     <parameter key="encoding" value="SYSTEM"/>
     <process expanded="true">
       <operator activated="true" class="retrieve" compatibility="7.4.000" expanded="true" height="68" name="Retrieve Step 3 Output" width="90" x="45" y="289">
-        <parameter key="repository_entry" value="../data/Intermediate Datasets/Closed_Sanitation_Requests_With_Duration_Attr_Added"/>
+        <parameter key="repository_entry" value="../data/Intermediate_Datasets/Closed_Sanitation_Requests_With_Duration_Attr_Added"/>
       </operator>
       <operator activated="true" class="rename" compatibility="7.4.000" expanded="true" height="82" name="Rename To Violation Type" width="90" x="246" y="289">
         <parameter key="old_name" value="What is the Nature of this Code Violation?"/>
@@ -245,7 +245,7 @@
         <description align="center" color="transparent" colored="true" width="126">Reorder Attributes for Readability</description>
       </operator>
       <operator activated="true" class="store" compatibility="7.4.000" expanded="true" height="68" name="Store" width="90" x="1050" y="34">
-        <parameter key="repository_entry" value="../data/Intermediate Datasets/Closed_Sanitation_Requests_Aggregated_By_Community_ID"/>
+        <parameter key="repository_entry" value="../data/Intermediate_Datasets/Closed_Sanitation_Requests_Aggregated_By_Community_ID"/>
       </operator>
       <connect from_op="Retrieve Step 3 Output" from_port="output" to_op="Rename To Violation Type" to_port="example set input"/>
       <connect from_op="Rename To Violation Type" from_port="example set output" to_op="Transpose Rows &amp; Aggregate" to_port="in 1"/>
