@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="7.4.000">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="7.4.000" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="productivity:execute_process" compatibility="7.4.000" expanded="true" height="68" name="Execute Step 1 - Remove Useless Attrs" width="90" x="45" y="34">
+        <parameter key="process_location" value="Step 1 - Remove Useless Attrs"/>
+        <parameter key="use_input" value="true"/>
+        <parameter key="store_output" value="false"/>
+        <parameter key="propagate_metadata_recursively" value="true"/>
+        <parameter key="cache_process" value="true"/>
+        <list key="macros"/>
+        <parameter key="fail_for_unknown_macros" value="true"/>
+      </operator>
+      <operator activated="true" class="productivity:execute_process" compatibility="7.4.000" expanded="true" height="82" name="Execute Step 2 - Split Open &amp; Closed Requests" width="90" x="246" y="136">
+        <parameter key="process_location" value="Step 2 - Split Open &amp; Closed Requests"/>
+        <parameter key="use_input" value="true"/>
+        <parameter key="store_output" value="false"/>
+        <parameter key="propagate_metadata_recursively" value="true"/>
+        <parameter key="cache_process" value="true"/>
+        <list key="macros"/>
+        <parameter key="fail_for_unknown_macros" value="true"/>
+      </operator>
+      <operator activated="true" class="productivity:execute_process" compatibility="7.4.000" expanded="true" height="82" name="Execute Step 3 - Generate Duration of Request Attr" width="90" x="447" y="187">
+        <parameter key="process_location" value="Step 3 - Generate Duration of Request Attr"/>
+        <parameter key="use_input" value="true"/>
+        <parameter key="store_output" value="false"/>
+        <parameter key="propagate_metadata_recursively" value="true"/>
+        <parameter key="cache_process" value="true"/>
+        <list key="macros"/>
+        <parameter key="fail_for_unknown_macros" value="true"/>
+      </operator>
+      <operator activated="false" class="productivity:execute_process" compatibility="7.4.000" expanded="true" height="68" name="Execute Step 4 - Tranpose &amp; Aggregate by Community ID" width="90" x="648" y="136">
+        <parameter key="process_location" value="Step 4 - Tranpose &amp; Aggregate by Community ID"/>
+        <parameter key="use_input" value="true"/>
+        <parameter key="store_output" value="false"/>
+        <parameter key="propagate_metadata_recursively" value="true"/>
+        <parameter key="cache_process" value="true"/>
+        <list key="macros"/>
+        <parameter key="fail_for_unknown_macros" value="true"/>
+        <description align="center" color="transparent" colored="false" width="126">To Execute the original Model, connect the module below into process&lt;br/&gt;</description>
+      </operator>
+      <operator activated="true" class="productivity:execute_process" compatibility="7.4.000" expanded="true" height="82" name="Execute Step 4 - Tranpose &amp; Aggregate by Community ID (Alternate Binning)" width="90" x="648" y="340">
+        <parameter key="process_location" value="Step 4 - Tranpose &amp; Aggregate by Community ID (Alternate Binning)"/>
+        <parameter key="use_input" value="true"/>
+        <parameter key="store_output" value="false"/>
+        <parameter key="propagate_metadata_recursively" value="true"/>
+        <parameter key="cache_process" value="true"/>
+        <list key="macros"/>
+        <parameter key="fail_for_unknown_macros" value="true"/>
+      </operator>
+      <operator activated="true" class="productivity:execute_process" compatibility="7.4.000" expanded="true" height="82" name="Execute Step 5 - Join to Public Health Indicators" width="90" x="849" y="187">
+        <parameter key="process_location" value="Step 5 - Join to Public Health Indicators"/>
+        <parameter key="use_input" value="true"/>
+        <parameter key="store_output" value="false"/>
+        <parameter key="propagate_metadata_recursively" value="true"/>
+        <parameter key="cache_process" value="true"/>
+        <list key="macros"/>
+        <parameter key="fail_for_unknown_macros" value="true"/>
+      </operator>
+      <operator activated="true" class="productivity:execute_process" compatibility="7.4.000" expanded="true" height="166" name="Execute Step 6 - Generate Models" width="90" x="1117" y="34">
+        <parameter key="process_location" value="Step 6 - Generate Models"/>
+        <parameter key="use_input" value="true"/>
+        <parameter key="store_output" value="false"/>
+        <parameter key="propagate_metadata_recursively" value="true"/>
+        <parameter key="cache_process" value="true"/>
+        <list key="macros"/>
+        <parameter key="fail_for_unknown_macros" value="true"/>
+      </operator>
+      <connect from_op="Execute Step 1 - Remove Useless Attrs" from_port="result 1" to_op="Execute Step 2 - Split Open &amp; Closed Requests" to_port="input 1"/>
+      <connect from_op="Execute Step 2 - Split Open &amp; Closed Requests" from_port="result 1" to_op="Execute Step 3 - Generate Duration of Request Attr" to_port="input 1"/>
+      <connect from_op="Execute Step 3 - Generate Duration of Request Attr" from_port="result 1" to_op="Execute Step 4 - Tranpose &amp; Aggregate by Community ID (Alternate Binning)" to_port="input 1"/>
+      <connect from_op="Execute Step 4 - Tranpose &amp; Aggregate by Community ID (Alternate Binning)" from_port="result 1" to_op="Execute Step 5 - Join to Public Health Indicators" to_port="input 1"/>
+      <connect from_op="Execute Step 5 - Join to Public Health Indicators" from_port="result 1" to_op="Execute Step 6 - Generate Models" to_port="input 1"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+    </process>
+  </operator>
+</process>
