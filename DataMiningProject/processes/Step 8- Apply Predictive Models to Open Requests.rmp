@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="7.4.000">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="7.4.000" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="retrieve" compatibility="7.4.000" expanded="true" height="68" name="Retrieve Sanitation_Requests_With_Useless_Attrs_Removed" width="90" x="45" y="289">
+        <parameter key="repository_entry" value="../data/Intermediate_Datasets/Open_Sanitation_Requests_Prepared_For_Prediction"/>
+      </operator>
+      <operator activated="true" class="set_role" compatibility="7.4.000" expanded="true" height="82" name="Set Role (2)" width="90" x="179" y="289">
+        <parameter key="attribute_name" value="Completion Date"/>
+        <parameter key="target_role" value="label"/>
+        <list key="set_additional_roles"/>
+      </operator>
+      <operator activated="true" class="multiply" compatibility="7.4.000" expanded="true" height="187" name="Multiply" width="90" x="447" y="289"/>
+      <operator activated="true" class="subprocess" compatibility="7.4.000" expanded="true" height="82" name="Predict Dumpster Cleanup" width="90" x="782" y="646">
+        <process expanded="true">
+          <operator activated="true" class="filter_examples" compatibility="7.4.000" expanded="true" height="103" name="Filter Examples (7)" width="90" x="45" y="187">
+            <parameter key="parameter_expression" value=""/>
+            <parameter key="condition_class" value="custom_filters"/>
+            <parameter key="invert_filter" value="false"/>
+            <list key="filters_list">
+              <parameter key="filters_entry_key" value="Violation Type.equals.Dumpster not being emptied"/>
+            </list>
+            <parameter key="filters_logic_and" value="true"/>
+            <parameter key="filters_check_metadata" value="true"/>
+          </operator>
+          <operator activated="true" class="retrieve" compatibility="7.4.000" expanded="true" height="68" name="Retrieve (6)" width="90" x="45" y="34">
+            <parameter key="repository_entry" value="../data/output/outputModels/DecisionTree-DumpsterCleanupCompletion"/>
+          </operator>
+          <operator activated="true" class="apply_model" compatibility="7.4.000" expanded="true" height="82" name="Apply Model (6)" width="90" x="246" y="85">
+            <list key="application_parameters"/>
+            <parameter key="create_view" value="false"/>
+          </operator>
+          <operator activated="true" class="store" compatibility="7.4.000" expanded="true" height="68" name="Store (6)" width="90" x="380" y="85">
+            <parameter key="repository_entry" value="../data/output/predictiveModelOutput/Predicted_Dumpser_Cleanup_Req_Duration"/>
+            <description align="center" color="transparent" colored="false" width="126">See Ouput in data &amp;gt; output &amp;gt; predictiveModelOutput&lt;br/&gt;</description>
+          </operator>
+          <connect from_port="in 1" to_op="Filter Examples (7)" to_port="example set input"/>
+          <connect from_op="Filter Examples (7)" from_port="example set output" to_op="Apply Model (6)" to_port="unlabelled data"/>
+          <connect from_op="Retrieve (6)" from_port="output" to_op="Apply Model (6)" to_port="model"/>
+          <connect from_op="Apply Model (6)" from_port="labelled data" to_op="Store (6)" to_port="input"/>
+          <portSpacing port="source_in 1" spacing="0"/>
+          <portSpacing port="source_in 2" spacing="0"/>
+          <portSpacing port="sink_out 1" spacing="0"/>
+          <portSpacing port="sink_out 2" spacing="0"/>
+        </process>
+      </operator>
+      <operator activated="true" class="subprocess" compatibility="7.4.000" expanded="true" height="82" name="Predict dog Feces Clean Up" width="90" x="849" y="544">
+        <process expanded="true">
+          <operator activated="true" class="filter_examples" compatibility="7.4.000" expanded="true" height="103" name="Filter Examples (6)" width="90" x="45" y="187">
+            <parameter key="parameter_expression" value=""/>
+            <parameter key="condition_class" value="custom_filters"/>
+            <parameter key="invert_filter" value="false"/>
+            <list key="filters_list">
+              <parameter key="filters_entry_key" value="Violation Type.equals.Dog feces in yard"/>
+            </list>
+            <parameter key="filters_logic_and" value="true"/>
+            <parameter key="filters_check_metadata" value="true"/>
+          </operator>
+          <operator activated="true" class="retrieve" compatibility="7.4.000" expanded="true" height="68" name="Retrieve (5)" width="90" x="45" y="34">
+            <parameter key="repository_entry" value="../data/output/outputModels/DecisionTree-DogTrashCompletion"/>
+          </operator>
+          <operator activated="true" class="apply_model" compatibility="7.4.000" expanded="true" height="82" name="Apply Model (5)" width="90" x="246" y="85">
+            <list key="application_parameters"/>
+            <parameter key="create_view" value="false"/>
+          </operator>
+          <operator activated="true" class="store" compatibility="7.4.000" expanded="true" height="68" name="Store (5)" width="90" x="380" y="85">
+            <parameter key="repository_entry" value="../data/output/predictiveModelOutput/Predicted_Dog_Feces_Req_Duration"/>
+            <description align="center" color="transparent" colored="false" width="126">See Ouput in data &amp;gt; output &amp;gt; predictiveModelOutput&lt;br/&gt;</description>
+          </operator>
+          <connect from_port="in 1" to_op="Filter Examples (6)" to_port="example set input"/>
+          <connect from_op="Filter Examples (6)" from_port="example set output" to_op="Apply Model (5)" to_port="unlabelled data"/>
+          <connect from_op="Retrieve (5)" from_port="output" to_op="Apply Model (5)" to_port="model"/>
+          <connect from_op="Apply Model (5)" from_port="labelled data" to_op="Store (5)" to_port="input"/>
+          <portSpacing port="source_in 1" spacing="0"/>
+          <portSpacing port="source_in 2" spacing="0"/>
+          <portSpacing port="sink_out 1" spacing="0"/>
+          <portSpacing port="sink_out 2" spacing="0"/>
+        </process>
+      </operator>
+      <operator activated="true" class="subprocess" compatibility="7.4.000" expanded="true" height="82" name="Predict Construction Clean up" width="90" x="916" y="442">
+        <process expanded="true">
+          <operator activated="true" class="filter_examples" compatibility="7.4.000" expanded="true" height="103" name="Filter Examples (5)" width="90" x="45" y="187">
+            <parameter key="parameter_expression" value=""/>
+            <parameter key="condition_class" value="custom_filters"/>
+            <parameter key="invert_filter" value="false"/>
+            <list key="filters_list">
+              <parameter key="filters_entry_key" value="Violation Type.equals.Construction Site Cleanliness/Fence"/>
+            </list>
+            <parameter key="filters_logic_and" value="true"/>
+            <parameter key="filters_check_metadata" value="true"/>
+          </operator>
+          <operator activated="true" class="retrieve" compatibility="7.4.000" expanded="true" height="68" name="Retrieve (4)" width="90" x="45" y="34">
+            <parameter key="repository_entry" value="../data/output/outputModels/DecisionTree-ConstructionCleanupCompletion"/>
+          </operator>
+          <operator activated="true" class="apply_model" compatibility="7.4.000" expanded="true" height="82" name="Apply Model (4)" width="90" x="246" y="85">
+            <list key="application_parameters"/>
+            <parameter key="create_view" value="false"/>
+          </operator>
+          <operator activated="true" class="store" compatibility="7.4.000" expanded="true" height="68" name="Store (4)" width="90" x="380" y="85">
+            <parameter key="repository_entry" value="../data/output/predictiveModelOutput/Predicted_Construction_CleanUp_Req_Duration"/>
+            <description align="center" color="transparent" colored="false" width="126">See Ouput in data &amp;gt; output &amp;gt; predictiveModelOutput&lt;br/&gt;</description>
+          </operator>
+          <connect from_port="in 1" to_op="Filter Examples (5)" to_port="example set input"/>
+          <connect from_op="Filter Examples (5)" from_port="example set output" to_op="Apply Model (4)" to_port="unlabelled data"/>
+          <connect from_op="Retrieve (4)" from_port="output" to_op="Apply Model (4)" to_port="model"/>
+          <connect from_op="Apply Model (4)" from_port="labelled data" to_op="Store (4)" to_port="input"/>
+          <portSpacing port="source_in 1" spacing="0"/>
+          <portSpacing port="source_in 2" spacing="0"/>
+          <portSpacing port="sink_out 1" spacing="0"/>
+          <portSpacing port="sink_out 2" spacing="0"/>
+        </process>
+      </operator>
+      <operator activated="true" class="subprocess" compatibility="7.4.000" expanded="true" height="82" name="Predict Overflowing Carts" width="90" x="916" y="289">
+        <process expanded="true">
+          <operator activated="true" class="filter_examples" compatibility="7.4.000" expanded="true" height="103" name="Filter Examples (4)" width="90" x="45" y="187">
+            <parameter key="parameter_expression" value=""/>
+            <parameter key="condition_class" value="custom_filters"/>
+            <parameter key="invert_filter" value="false"/>
+            <list key="filters_list">
+              <parameter key="filters_entry_key" value="Violation Type.equals.Overflowing carts"/>
+            </list>
+            <parameter key="filters_logic_and" value="true"/>
+            <parameter key="filters_check_metadata" value="true"/>
+          </operator>
+          <operator activated="true" class="retrieve" compatibility="7.4.000" expanded="true" height="68" name="Retrieve (3)" width="90" x="45" y="34">
+            <parameter key="repository_entry" value="../data/output/outputModels/DecisionTree-OverflowingCartsCompletion"/>
+          </operator>
+          <operator activated="true" class="apply_model" compatibility="7.4.000" expanded="true" height="82" name="Apply Model (3)" width="90" x="246" y="85">
+            <list key="application_parameters"/>
+            <parameter key="create_view" value="false"/>
+          </operator>
+          <operator activated="true" class="store" compatibility="7.4.000" expanded="true" height="68" name="Store (3)" width="90" x="380" y="85">
+            <parameter key="repository_entry" value="../data/output/predictiveModelOutput/Predicted_Overflowing_Carts_Req_Duration"/>
+            <description align="center" color="transparent" colored="false" width="126">See Ouput in data &amp;gt; output &amp;gt; predictiveModelOutput&lt;br/&gt;</description>
+          </operator>
+          <connect from_port="in 1" to_op="Filter Examples (4)" to_port="example set input"/>
+          <connect from_op="Filter Examples (4)" from_port="example set output" to_op="Apply Model (3)" to_port="unlabelled data"/>
+          <connect from_op="Retrieve (3)" from_port="output" to_op="Apply Model (3)" to_port="model"/>
+          <connect from_op="Apply Model (3)" from_port="labelled data" to_op="Store (3)" to_port="input"/>
+          <portSpacing port="source_in 1" spacing="0"/>
+          <portSpacing port="source_in 2" spacing="0"/>
+          <portSpacing port="sink_out 1" spacing="0"/>
+          <portSpacing port="sink_out 2" spacing="0"/>
+        </process>
+      </operator>
+      <operator activated="true" class="subprocess" compatibility="7.4.000" expanded="true" height="82" name="Predict Garbage in Yard" width="90" x="849" y="187">
+        <process expanded="true">
+          <operator activated="true" class="filter_examples" compatibility="7.4.000" expanded="true" height="103" name="Filter Examples (3)" width="90" x="45" y="187">
+            <parameter key="parameter_expression" value=""/>
+            <parameter key="condition_class" value="custom_filters"/>
+            <parameter key="invert_filter" value="false"/>
+            <list key="filters_list">
+              <parameter key="filters_entry_key" value="Violation Type.equals.Garbage in yard"/>
+            </list>
+            <parameter key="filters_logic_and" value="true"/>
+            <parameter key="filters_check_metadata" value="true"/>
+          </operator>
+          <operator activated="true" class="retrieve" compatibility="7.4.000" expanded="true" height="68" name="Retrieve (2)" width="90" x="45" y="34">
+            <parameter key="repository_entry" value="../data/output/outputModels/DecisionTree-GarbageInYardCompletion"/>
+          </operator>
+          <operator activated="true" class="apply_model" compatibility="7.4.000" expanded="true" height="82" name="Apply Model (2)" width="90" x="246" y="85">
+            <list key="application_parameters"/>
+            <parameter key="create_view" value="false"/>
+          </operator>
+          <operator activated="true" class="store" compatibility="7.4.000" expanded="true" height="68" name="Store (2)" width="90" x="380" y="85">
+            <parameter key="repository_entry" value="../data/output/predictiveModelOutput/Predicted_Garbage_In_Yard_Req_Duration"/>
+            <description align="center" color="transparent" colored="false" width="126">See Ouput in data &amp;gt; output &amp;gt; predictiveModelOutput&lt;br/&gt;</description>
+          </operator>
+          <connect from_port="in 1" to_op="Filter Examples (3)" to_port="example set input"/>
+          <connect from_op="Filter Examples (3)" from_port="example set output" to_op="Apply Model (2)" to_port="unlabelled data"/>
+          <connect from_op="Retrieve (2)" from_port="output" to_op="Apply Model (2)" to_port="model"/>
+          <connect from_op="Apply Model (2)" from_port="labelled data" to_op="Store (2)" to_port="input"/>
+          <portSpacing port="source_in 1" spacing="0"/>
+          <portSpacing port="source_in 2" spacing="0"/>
+          <portSpacing port="sink_out 1" spacing="0"/>
+          <portSpacing port="sink_out 2" spacing="0"/>
+        </process>
+      </operator>
+      <operator activated="true" class="subprocess" compatibility="7.4.000" expanded="true" height="82" name="Predict Garbage in Alley" width="90" x="782" y="85">
+        <process expanded="true">
+          <operator activated="true" class="filter_examples" compatibility="7.4.000" expanded="true" height="103" name="Filter Examples" width="90" x="45" y="187">
+            <parameter key="parameter_expression" value=""/>
+            <parameter key="condition_class" value="custom_filters"/>
+            <parameter key="invert_filter" value="false"/>
+            <list key="filters_list">
+              <parameter key="filters_entry_key" value="Violation Type.equals.Garbage in alley"/>
+            </list>
+            <parameter key="filters_logic_and" value="true"/>
+            <parameter key="filters_check_metadata" value="true"/>
+          </operator>
+          <operator activated="true" class="retrieve" compatibility="7.4.000" expanded="true" height="68" name="Retrieve" width="90" x="45" y="34">
+            <parameter key="repository_entry" value="../data/output/outputModels/DecisionTree-GarbageInAlleyCompletion"/>
+          </operator>
+          <operator activated="true" class="apply_model" compatibility="7.4.000" expanded="true" height="82" name="Apply Model" width="90" x="246" y="85">
+            <list key="application_parameters"/>
+            <parameter key="create_view" value="false"/>
+          </operator>
+          <operator activated="true" class="store" compatibility="7.4.000" expanded="true" height="68" name="Store" width="90" x="380" y="85">
+            <parameter key="repository_entry" value="../data/output/predictiveModelOutput/Predicted_Garbage_In_Alley_Req_Duration"/>
+            <description align="center" color="transparent" colored="false" width="126">See Ouput in data &amp;gt; output &amp;gt; predictiveModelOutput&lt;br/&gt;</description>
+          </operator>
+          <connect from_port="in 1" to_op="Filter Examples" to_port="example set input"/>
+          <connect from_op="Filter Examples" from_port="example set output" to_op="Apply Model" to_port="unlabelled data"/>
+          <connect from_op="Retrieve" from_port="output" to_op="Apply Model" to_port="model"/>
+          <connect from_op="Apply Model" from_port="labelled data" to_op="Store" to_port="input"/>
+          <portSpacing port="source_in 1" spacing="0"/>
+          <portSpacing port="source_in 2" spacing="0"/>
+          <portSpacing port="sink_out 1" spacing="0"/>
+          <portSpacing port="sink_out 2" spacing="0"/>
+        </process>
+      </operator>
+      <connect from_op="Retrieve Sanitation_Requests_With_Useless_Attrs_Removed" from_port="output" to_op="Set Role (2)" to_port="example set input"/>
+      <connect from_op="Set Role (2)" from_port="example set output" to_op="Multiply" to_port="input"/>
+      <connect from_op="Multiply" from_port="output 1" to_op="Predict Garbage in Alley" to_port="in 1"/>
+      <connect from_op="Multiply" from_port="output 2" to_op="Predict Garbage in Yard" to_port="in 1"/>
+      <connect from_op="Multiply" from_port="output 3" to_op="Predict Overflowing Carts" to_port="in 1"/>
+      <connect from_op="Multiply" from_port="output 4" to_op="Predict Construction Clean up" to_port="in 1"/>
+      <connect from_op="Multiply" from_port="output 5" to_op="Predict dog Feces Clean Up" to_port="in 1"/>
+      <connect from_op="Multiply" from_port="output 6" to_op="Predict Dumpster Cleanup" to_port="in 1"/>
+      <connect from_op="Predict Dumpster Cleanup" from_port="out 1" to_port="result 6"/>
+      <connect from_op="Predict dog Feces Clean Up" from_port="out 1" to_port="result 5"/>
+      <connect from_op="Predict Construction Clean up" from_port="out 1" to_port="result 4"/>
+      <connect from_op="Predict Overflowing Carts" from_port="out 1" to_port="result 3"/>
+      <connect from_op="Predict Garbage in Yard" from_port="out 1" to_port="result 2"/>
+      <connect from_op="Predict Garbage in Alley" from_port="out 1" to_port="result 1"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+      <portSpacing port="sink_result 3" spacing="0"/>
+      <portSpacing port="sink_result 4" spacing="0"/>
+      <portSpacing port="sink_result 5" spacing="0"/>
+      <portSpacing port="sink_result 6" spacing="0"/>
+      <portSpacing port="sink_result 7" spacing="0"/>
+    </process>
+  </operator>
+</process>

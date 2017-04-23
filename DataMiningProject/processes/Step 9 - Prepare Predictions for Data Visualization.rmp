@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="7.4.000">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="7.4.000" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="retrieve" compatibility="7.4.000" expanded="true" height="68" name="Retrieve Predicted_Construction_CleanUp_Req_Duration" width="90" x="112" y="85">
+        <parameter key="repository_entry" value="../data/output/predictiveModelOutput/Predicted_Construction_CleanUp_Req_Duration"/>
+      </operator>
+      <operator activated="true" class="select_attributes" compatibility="7.4.000" expanded="true" height="82" name="Select Attributes" width="90" x="246" y="85">
+        <parameter key="attribute_filter_type" value="subset"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value="Completion Date"/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="attribute_value"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="time"/>
+        <parameter key="block_type" value="attribute_block"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_matrix_row_start"/>
+        <parameter key="invert_selection" value="true"/>
+        <parameter key="include_special_attributes" value="false"/>
+      </operator>
+      <operator activated="true" class="rename" compatibility="7.4.000" expanded="true" height="82" name="Rename" width="90" x="380" y="85">
+        <parameter key="old_name" value="prediction(Average Construction Site Sanitation Req Duration)"/>
+        <parameter key="new_name" value="Predicted Completion Range"/>
+        <list key="rename_additional_attributes"/>
+      </operator>
+      <operator activated="true" class="retrieve" compatibility="7.4.000" expanded="true" height="68" name="Retrieve Predicted_Dog_Feces_Req_Duration" width="90" x="112" y="187">
+        <parameter key="repository_entry" value="../data/output/predictiveModelOutput/Predicted_Dog_Feces_Req_Duration"/>
+      </operator>
+      <operator activated="true" class="select_attributes" compatibility="7.4.000" expanded="true" height="82" name="Select Attributes (2)" width="90" x="246" y="187">
+        <parameter key="attribute_filter_type" value="subset"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value="Completion Date"/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="attribute_value"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="time"/>
+        <parameter key="block_type" value="attribute_block"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_matrix_row_start"/>
+        <parameter key="invert_selection" value="true"/>
+        <parameter key="include_special_attributes" value="false"/>
+      </operator>
+      <operator activated="true" class="rename" compatibility="7.4.000" expanded="true" height="82" name="Rename (2)" width="90" x="380" y="187">
+        <parameter key="old_name" value="prediction(Average Dog Trash Req Duration)"/>
+        <parameter key="new_name" value="Predicted Completion Range"/>
+        <list key="rename_additional_attributes"/>
+      </operator>
+      <operator activated="true" class="retrieve" compatibility="7.4.000" expanded="true" height="68" name="Retrieve Predicted_Dumpser_Cleanup_Req_Duration" width="90" x="112" y="289">
+        <parameter key="repository_entry" value="../data/output/predictiveModelOutput/Predicted_Dumpser_Cleanup_Req_Duration"/>
+      </operator>
+      <operator activated="true" class="select_attributes" compatibility="7.4.000" expanded="true" height="82" name="Select Attributes (3)" width="90" x="246" y="289">
+        <parameter key="attribute_filter_type" value="subset"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value="Completion Date"/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="attribute_value"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="time"/>
+        <parameter key="block_type" value="attribute_block"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_matrix_row_start"/>
+        <parameter key="invert_selection" value="true"/>
+        <parameter key="include_special_attributes" value="false"/>
+      </operator>
+      <operator activated="true" class="rename" compatibility="7.4.000" expanded="true" height="82" name="Rename (3)" width="90" x="380" y="289">
+        <parameter key="old_name" value="prediction(Average Dumpster Req Duration)"/>
+        <parameter key="new_name" value="Predicted Completion Range"/>
+        <list key="rename_additional_attributes"/>
+      </operator>
+      <operator activated="true" class="retrieve" compatibility="7.4.000" expanded="true" height="68" name="Retrieve Predicted_Garbage_In_Alley_Req_Duration" width="90" x="112" y="391">
+        <parameter key="repository_entry" value="../data/output/predictiveModelOutput/Predicted_Garbage_In_Alley_Req_Duration"/>
+      </operator>
+      <operator activated="true" class="select_attributes" compatibility="7.4.000" expanded="true" height="82" name="Select Attributes (4)" width="90" x="246" y="391">
+        <parameter key="attribute_filter_type" value="subset"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value="Completion Date"/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="attribute_value"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="time"/>
+        <parameter key="block_type" value="attribute_block"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_matrix_row_start"/>
+        <parameter key="invert_selection" value="true"/>
+        <parameter key="include_special_attributes" value="false"/>
+      </operator>
+      <operator activated="true" class="rename" compatibility="7.4.000" expanded="true" height="82" name="Rename (4)" width="90" x="380" y="391">
+        <parameter key="old_name" value="prediction(Average Garabage in Alley Req Duration)"/>
+        <parameter key="new_name" value="Predicted Completion Range"/>
+        <list key="rename_additional_attributes"/>
+      </operator>
+      <operator activated="true" class="retrieve" compatibility="7.4.000" expanded="true" height="68" name="Retrieve Predicted_Garbage_In_Yard_Req_Duration" width="90" x="112" y="493">
+        <parameter key="repository_entry" value="../data/output/predictiveModelOutput/Predicted_Garbage_In_Yard_Req_Duration"/>
+      </operator>
+      <operator activated="true" class="retrieve" compatibility="7.4.000" expanded="true" height="68" name="Retrieve Predicted_Overflowing_Carts_Req_Duration" width="90" x="112" y="595">
+        <parameter key="repository_entry" value="../data/output/predictiveModelOutput/Predicted_Overflowing_Carts_Req_Duration"/>
+      </operator>
+      <operator activated="true" class="select_attributes" compatibility="7.4.000" expanded="true" height="82" name="Select Attributes (6)" width="90" x="246" y="595">
+        <parameter key="attribute_filter_type" value="subset"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value="Completion Date"/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="attribute_value"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="time"/>
+        <parameter key="block_type" value="attribute_block"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_matrix_row_start"/>
+        <parameter key="invert_selection" value="true"/>
+        <parameter key="include_special_attributes" value="false"/>
+      </operator>
+      <operator activated="true" class="rename" compatibility="7.4.000" expanded="true" height="82" name="Rename (6)" width="90" x="380" y="595">
+        <parameter key="old_name" value="prediction(Average Overflowing Carts Req Duration)"/>
+        <parameter key="new_name" value="Predicted Completion Range"/>
+        <list key="rename_additional_attributes"/>
+      </operator>
+      <operator activated="true" class="select_attributes" compatibility="7.4.000" expanded="true" height="82" name="Select Attributes (5)" width="90" x="246" y="493">
+        <parameter key="attribute_filter_type" value="subset"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value="Completion Date"/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="attribute_value"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="time"/>
+        <parameter key="block_type" value="attribute_block"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_matrix_row_start"/>
+        <parameter key="invert_selection" value="true"/>
+        <parameter key="include_special_attributes" value="false"/>
+      </operator>
+      <operator activated="true" class="rename" compatibility="7.4.000" expanded="true" height="82" name="Rename (5)" width="90" x="380" y="493">
+        <parameter key="old_name" value="prediction(Average Garbage in Yard Req Duration)"/>
+        <parameter key="new_name" value="Predicted Completion Range"/>
+        <list key="rename_additional_attributes"/>
+      </operator>
+      <operator activated="true" class="append" compatibility="7.4.000" expanded="true" height="187" name="Append" width="90" x="581" y="238">
+        <parameter key="datamanagement" value="double_array"/>
+        <parameter key="data_management" value="auto"/>
+        <parameter key="merge_type" value="all"/>
+      </operator>
+      <operator activated="true" class="select_attributes" compatibility="7.4.000" expanded="true" height="82" name="Select Attributes (7)" width="90" x="715" y="238">
+        <parameter key="attribute_filter_type" value="subset"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value="Completion Date"/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="attribute_value"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="time"/>
+        <parameter key="block_type" value="attribute_block"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_matrix_row_start"/>
+        <parameter key="invert_selection" value="true"/>
+        <parameter key="include_special_attributes" value="false"/>
+      </operator>
+      <operator activated="true" class="retrieve" compatibility="7.4.000" expanded="true" height="68" name="Retrieve Communities By Side" width="90" x="715" y="85">
+        <parameter key="repository_entry" value="../data/input/Communities By Side"/>
+      </operator>
+      <operator activated="true" class="join" compatibility="7.4.000" expanded="true" height="82" name="Join" width="90" x="916" y="187">
+        <parameter key="remove_double_attributes" value="true"/>
+        <parameter key="join_type" value="inner"/>
+        <parameter key="use_id_attribute_as_key" value="true"/>
+        <list key="key_attributes"/>
+        <parameter key="keep_both_join_attributes" value="false"/>
+        <description align="center" color="transparent" colored="false" width="126">Join to data set specifying North to South inclination&lt;br/&gt;</description>
+      </operator>
+      <operator activated="true" class="sort" compatibility="7.4.000" expanded="true" height="82" name="Sort" width="90" x="1050" y="187">
+        <parameter key="attribute_name" value="General location (1 - 4)"/>
+        <parameter key="sorting_direction" value="increasing"/>
+      </operator>
+      <connect from_op="Retrieve Predicted_Construction_CleanUp_Req_Duration" from_port="output" to_op="Select Attributes" to_port="example set input"/>
+      <connect from_op="Select Attributes" from_port="example set output" to_op="Rename" to_port="example set input"/>
+      <connect from_op="Rename" from_port="example set output" to_op="Append" to_port="example set 1"/>
+      <connect from_op="Retrieve Predicted_Dog_Feces_Req_Duration" from_port="output" to_op="Select Attributes (2)" to_port="example set input"/>
+      <connect from_op="Select Attributes (2)" from_port="example set output" to_op="Rename (2)" to_port="example set input"/>
+      <connect from_op="Rename (2)" from_port="example set output" to_op="Append" to_port="example set 2"/>
+      <connect from_op="Retrieve Predicted_Dumpser_Cleanup_Req_Duration" from_port="output" to_op="Select Attributes (3)" to_port="example set input"/>
+      <connect from_op="Select Attributes (3)" from_port="example set output" to_op="Rename (3)" to_port="example set input"/>
+      <connect from_op="Rename (3)" from_port="example set output" to_op="Append" to_port="example set 3"/>
+      <connect from_op="Retrieve Predicted_Garbage_In_Alley_Req_Duration" from_port="output" to_op="Select Attributes (4)" to_port="example set input"/>
+      <connect from_op="Select Attributes (4)" from_port="example set output" to_op="Rename (4)" to_port="example set input"/>
+      <connect from_op="Rename (4)" from_port="example set output" to_op="Append" to_port="example set 4"/>
+      <connect from_op="Retrieve Predicted_Garbage_In_Yard_Req_Duration" from_port="output" to_op="Select Attributes (5)" to_port="example set input"/>
+      <connect from_op="Retrieve Predicted_Overflowing_Carts_Req_Duration" from_port="output" to_op="Select Attributes (6)" to_port="example set input"/>
+      <connect from_op="Select Attributes (6)" from_port="example set output" to_op="Rename (6)" to_port="example set input"/>
+      <connect from_op="Rename (6)" from_port="example set output" to_op="Append" to_port="example set 6"/>
+      <connect from_op="Select Attributes (5)" from_port="example set output" to_op="Rename (5)" to_port="example set input"/>
+      <connect from_op="Rename (5)" from_port="example set output" to_op="Append" to_port="example set 5"/>
+      <connect from_op="Append" from_port="merged set" to_op="Select Attributes (7)" to_port="example set input"/>
+      <connect from_op="Select Attributes (7)" from_port="example set output" to_op="Join" to_port="right"/>
+      <connect from_op="Retrieve Communities By Side" from_port="output" to_op="Join" to_port="left"/>
+      <connect from_op="Join" from_port="join" to_op="Sort" to_port="example set input"/>
+      <connect from_op="Sort" from_port="example set output" to_port="result 1"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+    </process>
+  </operator>
+</process>
